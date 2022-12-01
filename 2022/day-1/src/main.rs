@@ -56,19 +56,24 @@ Find the top three Elves carrying the most Calories. How many Calories are those
 include!(concat!(env!("OUT_DIR"), "/input.rs"));
 // const ELVES: [[u32; _]; _]
 
-fn main() {
+fn part_one() {
+    let most_calories_carried_by_elf = ELVES.iter().map(|elf| elf.iter().sum()).fold(0, u32::max);
+    println!("Most calories carried by elf: {}", most_calories_carried_by_elf);
+}
+
+fn part_two() {
     let mut calories_carried_per_elf = ELVES.iter().map(|elf| elf.iter().sum()).collect::<Vec<u32>>();
     calories_carried_per_elf.sort();
 
-    let most_calories_carried_by_elf = calories_carried_per_elf.last().unwrap();
     let top_3_most_calories_carried: u32 = calories_carried_per_elf.iter().rev().take(3).sum();
 
     println!(
-        "\
-            Most calories carried by elf: {}\n\
-            Calories carried by top 3: {}\
-        ",
-        most_calories_carried_by_elf,
+        "Calories carried by top 3: {}",
         top_3_most_calories_carried
     );
+}
+
+fn main() {
+    part_one();
+    part_two();
 }

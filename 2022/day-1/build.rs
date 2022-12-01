@@ -27,9 +27,7 @@ fn main() {
     fs::write(
         &dest_path,
         format!(
-            "\
-            const ELVES: [[u32; {}]; {}] = [{}];\
-            ",
+            "const ELVES: [[u32; {}]; {}] = [{}];",
             most_food_carried_by_an_elf,
             elves.len(),
             elves.iter().map(|elf| format!("[{}]", elf.join(", "))).collect::<Vec<String>>().join(", ")
