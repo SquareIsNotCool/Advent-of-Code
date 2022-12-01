@@ -1,0 +1,1 @@
+This repository contains all my solutions for [Advent of Code](https://adventofcode.com/2022/about)
